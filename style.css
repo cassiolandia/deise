@@ -1,0 +1,824 @@
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ .hidden-field {
+   position: absolute;
+   left: -5000px; /* Move para fora da tela */
+   top: -5000px;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave */
+    font-size: 16px; /* Base para REM */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #444;
+    background-color: #fdfdfd;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+h1, h2, h3 {
+    color: #5a2d82; /* Roxo Principal */
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Linha decorativa abaixo do H2 */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #7d3cbf; /* Roxo mais claro */
+    border-radius: 2px;
+}
+
+
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #7d3cbf;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5a2d82;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Botão Call-to-Action Genérico */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+}
+
+.cta-button i {
+    margin-right: 8px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.whatsapp {
+    background-color: #25D366;
+    color: #fff;
+}
+.cta-button.whatsapp:hover {
+    background-color: #1ebe58;
+}
+
+.cta-button:not(.whatsapp) {
+    background-color: #7d3cbf; /* Roxo mais claro */
+    color: #fff;
+}
+
+.cta-button:not(.whatsapp):hover {
+    background-color: #5a2d82; /* Roxo Principal */
+}
+
+
+/* Cabeçalho Fixo */
+#main-header {
+    background-color: #fff;
+    padding: 0.8rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: padding 0.3s ease;
+}
+
+#main-header.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-header .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #5a2d82;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#main-header nav ul {
+    display: flex;
+}
+
+#main-header nav ul li {
+    margin-left: 25px;
+}
+
+#main-header nav ul li a {
+    color: #555;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center;
+}
+
+#main-header nav ul li a i {
+    margin-right: 6px; /* Espaço entre ícone e texto */
+    transition: transform 0.3s ease; /* Animação ícone */
+    font-size: 0.9em; /* Tamanho do ícone */
+}
+
+#main-header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7d3cbf;
+    transition: width 0.3s ease;
+}
+
+#main-header nav ul li a:hover {
+    color: #7d3cbf;
+}
+
+#main-header nav ul li a:hover::after {
+    width: 100%;
+}
+
+#main-header nav ul li a:hover i {
+    transform: scale(1.2); /* Efeito de zoom no ícone */
+}
+
+.header-social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.header-social-icons a {
+    color: #555;
+    font-size: 1.3rem;
+    margin-left: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header-social-icons a:hover {
+    color: #7d3cbf;
+    transform: scale(1.2);
+}
+
+/* Botão Menu Mobile */
+#mobile-menu-button {
+    display: none; /* Oculto por padrão */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #5a2d82;
+    cursor: pointer;
+}
+
+/* Menu Mobile */
+#mobile-menu {
+    display: none; /* Começa oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    padding-top: 80px; /* Espaço para o header */
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-menu.active {
+    display: flex; /* Mostra quando ativo */
+}
+
+#mobile-menu nav ul li {
+    margin: 20px 0;
+}
+
+#mobile-menu nav ul li a {
+    font-size: 1.5rem;
+    color: #5a2d82;
+    font-weight: 600;
+}
+
+#mobile-menu .mobile-social-icons {
+    margin-top: 40px;
+}
+
+#mobile-menu .mobile-social-icons a {
+    font-size: 2rem;
+    color: #5a2d82;
+    margin: 0 15px;
+}
+
+
+/* Seção Hero */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    background: url('./images/consultorio.jpg') no-repeat center center/cover; /* IMAGEM DE FUNDO */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 45, 130, 0.6); /* Sobreposição Roxo com Transparência */
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #eee;
+}
+
+.hero-buttons {
+    margin-top: 1.5rem;
+}
+
+/* Seção Sobre */
+.about-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Espaçamento entre imagem e texto */
+}
+
+.about-image {
+    flex: 0 0 40%; /* Largura da imagem */
+}
+
+.about-image img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1; /* Ocupa o espaço restante */
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #f9f4ff; /* Fundo levemente roxo */
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(90, 45, 130, 0.15);
+}
+
+
+.highlight i {
+    font-size: 2.5rem;
+    color: #7d3cbf;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.highlight span {
+    font-weight: 600;
+    color: #5a2d82;
+}
+
+/* Seção Especialidades */
+.specialties-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+}
+
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.specialty-card {
+    background: #fff;
+    padding: 35px 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid transparent; /* Borda superior para efeito hover */
+}
+
+.specialty-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-top-color: #7d3cbf;
+}
+
+.specialty-card i {
+    font-size: 3.8rem;
+    color: #7d3cbf;
+    margin-bottom: 20px;
+    display: block;
+    transition: transform 0.3s ease; /* Animação para o ícone */
+}
+
+.specialty-card:hover i {
+     transform: scale(1.1) rotate(-5deg); /* Efeito no ícone ao passar o mouse */
+}
+
+.specialty-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #5a2d82;
+}
+
+.specialty-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Seção Localização */
+.location-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.map-icon {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #7d3cbf;
+    margin-bottom: 25px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.direction-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0; /* Centraliza o botão */
+    background-color: #4285F4; /* Azul Google */
+    color: #fff;
+}
+.direction-button:hover {
+    background-color: #357ae8;
+}
+
+/* Seção Contato */
+.contact-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+}
+
+.contact-subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative; /* Para ícones dentro */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a2d82;
+}
+
+.form-group label i {
+    margin-right: 6px;
+    color: #7d3cbf;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px; /* Padding interno */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+    padding-left: 40px; /* Espaço para ícone */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #7d3cbf;
+    box-shadow: 0 0 5px rgba(125, 60, 191, 0.3);
+}
+
+/* Ícones dentro dos campos */
+.form-group::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 42px; /* Ajustar posição vertical */
+    color: #aaa;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+.form-group input:focus + label i,
+.form-group textarea:focus + label i,
+.form-group input:focus::before,
+.form-group textarea:focus::before {
+     color: #7d3cbf; /* Muda cor do ícone no foco */
+}
+
+/* Ícones específicos */
+.form-group label[for="name"] + input::before { content: "\f007"; } /* user */
+.form-group label[for="phone"] + input::before { content: "\f095"; } /* phone */
+.form-group label[for="message"] + textarea::before { content: "\f2b6"; top: 15px; } /* envelope-open-text */
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Rodapé */
+#footer {
+    background: #333;
+    color: #ccc;
+    padding: 50px 0 30px;
+    text-align: center;
+}
+
+.footer-social-icons a {
+    color: #fff;
+    font-size: 1.6rem;
+    margin: 0 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: #7d3cbf; /* Roxo no hover */
+    transform: translateY(-3px);
+}
+/* Cores específicas para ícones sociais no rodapé */
+.footer-social-icons a[title="Instagram"]:hover { color: #E1306C; }
+.footer-social-icons a[title="WhatsApp"]:hover { color: #25D366; }
+
+
+.footer-links {
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+.footer-links a:hover {
+    color: #fff;
+}
+
+#footer p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+#footer .dev-credit {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Botão Flutuante WhatsApp */
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem; /* Tamanho do ícone */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 998;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-fixed:hover {
+    transform: scale(1.1);
+    background-color: #1ebe58;
+}
+
+/* Responsividade */
+
+/* Telas Médias (Tablets) */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .about-content {
+        flex-direction: column; /* Empilha imagem e texto */
+        text-align: center;
+    }
+    .about-image {
+        max-width: 70%; /* Limita tamanho da imagem */
+        margin-bottom: 30px;
+    }
+     .highlights {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+    }
+}
+
+/* Telas Pequenas (Mobiles) */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px; /* Ajusta base do REM */
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    #main-header nav,
+    #main-header .header-social-icons {
+        display: none; /* Esconde menu e ícones sociais do header */
+    }
+    #mobile-menu-button {
+        display: block; /* Mostra botão do menu mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .highlights {
+        grid-template-columns: 1fr; /* Uma coluna */
+        gap: 20px;
+    }
+     .specialties-grid {
+        grid-template-columns: 1fr; /* Uma coluna */
+    }
+    .contact-form {
+        padding: 30px;
+    }
+    .footer-social-icons a {
+        font-size: 1.4rem;
+    }
+    .whatsapp-fixed {
+        width: 55px;
+        height: 55px;
+        font-size: 2.2rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    /* Ajuste para ícones dentro dos campos no mobile */
+    .form-group::before {
+        top: 40px;
+    }
+    .form-group textarea + label + textarea::before {
+         top: 15px;
+    }
+
+}
+
+/* Telas Muito Pequenas */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+     .hero-buttons {
+        display: flex;
+        flex-direction: column; /* Empilha os botões */
+        align-items: center;
+    }
+    .cta-button {
+        width: 80%; /* Largura maior para botões empilhados */
+        margin: 8px 0;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+    .footer-links {
+        font-size: 0.8rem;
+    }
+     #footer p {
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================= */
+/* Estilos Seção Resultados (Versão Simples) */
+/* ========================================= */
+.results-section {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+}
+
+.results-section .section-subtitle {
+    text-align: center;
+    margin-top: -40px; /* Puxa para mais perto do título */
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.results-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cria colunas responsivas */
+    gap: 40px; /* Espaço entre as imagens */
+    justify-content: center; /* Centraliza os itens no grid se houver espaço */
+    max-width: 1000px; /* Limita a largura máxima do container das imagens */
+    margin: 0 auto; /* Centraliza o container das imagens na página */
+}
+
+.result-image-wrapper {
+    border-radius: 12px; /* Bordas mais arredondadas */
+    overflow: hidden; /* Garante que a imagem respeite o border-radius */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Sombra mais pronunciada */
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), /* Transição suave */
+                box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #fff; /* Fundo branco caso a imagem demore a carregar */
+}
+
+.result-image-wrapper:hover {
+    transform: translateY(-10px) scale(1.03); /* Efeito de levantar e aumentar um pouco */
+    box-shadow: 0 14px 35px rgba(90, 45, 130, 0.2); /* Sombra roxa sutil no hover */
+}
+
+.result-image-wrapper img {
+    display: block; /* Remove espaço extra abaixo da imagem */
+    width: 100%;
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 12px; /* Aplica o radius na imagem também */
+}
+
+/* Responsividade para a seção de resultados */
+@media (max-width: 768px) {
+    .results-showcase {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
+        max-width: 500px; /* Limita a largura no mobile para não ficar gigante */
+        gap: 35px;
+    }
+    .results-section .section-subtitle {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-showcase {
+        max-width: 95%; /* Quase largura total em telas bem pequenas */
+        gap: 30px;
+    }
+     .results-section {
+        padding: 60px 0; /* Menos padding vertical */
+    }
+}
+/* Estilo para o link do desenvolvedor no rodapé */
+.dev-credit {
+    margin-top: 25px; /* Espaço acima do texto */
+    padding-top: 15px; /* Espaço interno acima */
+    border-top: 1px solid #444; /* Linha separadora sutil */
+    font-size: 0.85rem; /* Tamanho um pouco menor que o texto principal do rodapé */
+    color: #bbb; /* Cor cinza claro para o texto */
+    max-width: 350px; /* Limita a largura para melhor leitura */
+    margin-left: auto; /* Centraliza (junto com margin-right) */
+    margin-right: auto;
+}
+
+.dev-credit a {
+    color: #ddd; /* Cor do link um pouco mais clara */
+    text-decoration: underline; /* Sublinhado para deixar claro que é um link */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dev-credit a:hover {
+    color: #fff; /* Cor do link ao passar o mouse */
+}
