@@ -102,13 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault(); // Impede o envio convencional
 
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
 
             // Formata a mensagem com formatação rica do WhatsApp
             const textoMensagem = `Olá Dra. Deise! Vim pelo site e gostaria de agendar uma consulta.\n\n` +
                                   `*Nome:* ${name}\n` +
-                                  `*Telefone/WhatsApp:* ${phone}\n` +
                                   `*Mensagem:* ${message}`;
 
             const textoCodificado = encodeURIComponent(textoMensagem);
