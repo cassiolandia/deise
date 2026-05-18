@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const numeroWhatsApp = "5511969444416"; 
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
 
-            // Abre a janela do WhatsApp
-            window.open(urlWhatsApp, '_blank');
+            // Redireciona para o WhatsApp (evita bloqueadores de pop-up)
+            window.location.href = urlWhatsApp;
         });
     }
 });
